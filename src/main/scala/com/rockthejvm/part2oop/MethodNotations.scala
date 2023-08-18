@@ -57,7 +57,7 @@ object MethodNotations {
     // "operator" = plain method
     println(mary + john)
     println(mary.+(john)) // identical
-    println(2 + 3)
+    println(2 + 3) // here + is a method defined in the int type.
     println(2.+(3)) // same
     println(mary !! "Scala")
 

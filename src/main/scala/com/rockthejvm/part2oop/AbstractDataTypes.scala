@@ -3,6 +3,7 @@ package com.rockthejvm.part2oop
 object AbstractDataTypes {
 
   abstract class Animal {
+    // abstract modifier will allow the class to not implements its fields or methods.
     val creatureType: String // abstract
     def eat(): Unit
     // non-abstract fields/methods allowed
@@ -32,8 +33,8 @@ object AbstractDataTypes {
   }
 
   // practical difference abstract classes vs traits
-  // one class inheritance
-  // multiple traits inheritance
+  // class -> one class inheritance
+  // Traits - multiple traits inheritance
   trait ColdBlooded
   class Crocodile extends Animal with Carnivore with ColdBlooded {
     override val creatureType = "croc"
@@ -60,7 +61,7 @@ object AbstractDataTypes {
    */
 
   val aNonExistentAnimal: Animal = null
-  val anInt: Int = throw new NullPointerException
+  val anInt: Int = throw new NullPointerException // returns scala.Nothing
 
   def main(args: Array[String]): Unit = {
 

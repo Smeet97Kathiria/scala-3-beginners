@@ -3,13 +3,15 @@ package com.rockthejvm.part2oop
 object OOBasics {
 
   // classes
-  class Person(val name: String, age: Int) { // constructor signature
+  class Person(val name: String, age: Int) { // constructor signature -> list of all arguments in a constructor.
+    // constructor is a special kind of function that allocates instances of the class in memory.
+    // to make constructor arguments a field add val to it.
     // fields
     val allCaps = name.toUpperCase()
 
     // methods
     def greet(name: String): String =
-      s"${this.name} says: Hi, $name"
+      s"${this.name} says: Hi, $name" // this.name refers to the value of the class instance.
 
     // signature differs
     // OVERLOADING
@@ -72,10 +74,20 @@ class Writer(firstName: String, lastName: String, val yearOfBirth: Int) {
 }
 
 class Novel(title: String, yearOfRelease: Int, val author: Writer) {
-  def authorAge: Int = yearOfRelease - author.yearOfBirth
-  def isWrittenBy(author: Writer): Boolean = this.author == author
-  def copy(newYear: Int): Novel = new Novel(title, newYear, author)
+  def authorAge: Int = {
+    yearOfRelease - author.yearOfBirth
+  }
+  def isWrittenBy(author: Writer): Boolean =
+  {
+    this.author == author
+  }
+  def copy(newYear: Int): Novel = {
+    new Novel(title, newYear, author)
+  }
 }
+
+
+
 
 /**
  * Exercise #2: an immutable counter class
@@ -99,7 +111,7 @@ class Counter(count: Int = 0) {
 
   def increment(n: Int): Counter =
     if (n <= 0) this
-    else increment().increment(n - 1) // vulnerable to SOs
+    else increment().increment(n - 1) // vulnerable to SOs (Stack overflow) 
 
   def decrement(n: Int): Counter =
     if (n <= 0) this

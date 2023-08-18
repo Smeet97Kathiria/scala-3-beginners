@@ -13,7 +13,7 @@ object AnonymousClasses {
 
   val someAnimal = new SomeAnimal
 
-  val someAnimal_v2 = new Animal { // anonymous class
+  val someAnimal_v2 = new Animal { // anonymous class , overriding method on the spot during object creations.
     override def eat(): Unit = println("I'm a weird animal")
   }
 

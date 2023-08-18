@@ -2,7 +2,7 @@ package com.rockthejvm.part2oop
 
 import scala.collection.SortedSet
 
-// can define values and methods top-level
+// can define values and methods top-level ( Global Variables )
 // they will be included in a synthetic object
 // can be imported via an mypackage.* import
 val meaningOfLife = 42
@@ -32,14 +32,14 @@ object PackagesImports { // top-level definition
 
   // import everything EXCEPT something
   object PlayingPhysics {
-    import PhysicsConstants.{PLANCK as _, *}
+    import PhysicsConstants.{PLANCK as _, *} // import everything but planck
     // val plank = PLANK // will not work
   }
 
   import com.rockthejvm.part2oop.* // import the mol and computeMyLife
   val mol = meaningOfLife
 
-  // default imports:
+  // default imports in Scala:
   // scala.*, scala.Predef.*, java.lang.*
 
   // exports

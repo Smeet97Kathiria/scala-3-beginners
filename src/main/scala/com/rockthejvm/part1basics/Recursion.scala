@@ -1,13 +1,15 @@
 package com.rockthejvm.part1basics
 
 import scala.annotation.tailrec
+import scala.jdk.Accumulator
 
 object Recursion {
 
   // "repetition" = recursion
   def sumUntil(n: Int): Int =
     if (n <= 0) 0
-    else n + sumUntil(n - 1) // "stack" recursion
+    else n + sumUntil(n - 1) // "stack" recursion - this causes stack overflow error for large no,
+    // since the recursive function is not the last thing that is evaluated since it has n + in the beginning which gets evaluated first. It creates additional stack frames.
 
   def sumUntil_v2(n: Int): Int = {
     /*
@@ -19,7 +21,7 @@ object Recursion {
       sut(0, 1 + 2 + 3 + .. + 9 + 10)
       = 1 + 2 + 3 + .. + 10
      */
-    @tailrec
+    @tailrec // to tell the compiler to determine whether this function is tail recursive or not.
     def sumUntilTailrec(x: Int, accumulator: Int): Int =
       if (x <= 0) accumulator
       else sumUntilTailrec(x - 1, accumulator + x) // TAIL recursion = recursive call occurs LAST in its code path
@@ -41,6 +43,17 @@ object Recursion {
     sumTailrec(a, 0)
   }
 
+
+  def concatNtimes(n: Int, s: String): String = {
+
+    @tailrec
+    def concatTailrec(currentNo:Int,accumulator: String):String = {
+      if (currentNo >n+1) accumulator
+      else concatTailrec(currentNo+1,s*(currentNo-1))
+    }
+    concatTailrec(n,"")
+  }
+  println(concatNtimes(10,"Scala"))
   /**
    * Exercises
    * 1. Concatenate a string n times
@@ -80,7 +93,7 @@ object Recursion {
 
   def main(args: Array[String]): Unit = {
     println(sumUntil_v2(20000))
-    println(concatenate("Scala", 5))
+//    println(concatenate("Scala", 5))
     println(fibonacci(7))
   }
 }

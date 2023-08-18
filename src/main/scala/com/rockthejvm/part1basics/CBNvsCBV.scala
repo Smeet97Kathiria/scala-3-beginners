@@ -2,11 +2,11 @@ package com.rockthejvm.part1basics
 
 object CBNvsCBV {
 
-  // CBV = call by value = arguments are evaluated before function invocation
+  // CBV = call by value = arguments are evaluated before function invocation, value is computed before call and same value is used everywhere.
   def aFunction(arg: Int): Int = arg + 1
   val aComputation = aFunction(23 + 67)
 
-  // CBN = call by name = arguments are passed LITERALLY, evaluated at every reference
+  // CBN = call by name = arguments are passed LITERALLY, evaluated at every reference,
   def aByNameFunction(arg: => Int): Int = arg + 1
   val anotherComputation = aByNameFunction(23 + 67)
 

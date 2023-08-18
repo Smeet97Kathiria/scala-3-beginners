@@ -37,11 +37,15 @@ object Functions {
 
   def aBigFunction(n: Int): Int = {
     // small, auxiliary functions inside
-    def aSmallerFunction(a: Int, b: Int): Int = a + b
+    def multiply_two_values(a: Int, b: Int): Int = a  * b
+    def subtract_ten(a: Int): Int = a - 10
 
-    aSmallerFunction(n, n + 1)
+
+    subtract_ten(multiply_two_values(n, n + 1))
+
   }
 
+  println(aBigFunction(12))
   /**
    * Exercises
    * 1. A greeting function (name, age) => "Hi my name is $name and I am $age years old."

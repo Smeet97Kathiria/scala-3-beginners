@@ -4,7 +4,7 @@ import scala.annotation.tailrec
 
 object HOFsCurrying {
 
-  // higher order functions (HOFs)
+  // higher order functions (HOFs) takes another function as an argument.
   val aHof: (Int, (Int => Int)) => Int = (x, func) => x + 1
   val anotherHof: Int => (Int => Int) = x => (y => y + 2 * x)
 
@@ -99,8 +99,8 @@ object HOFsCurrying {
 
   val incrementer = (x: Int) => x + 1
   val doubler = (x: Int) => 2 * x
-  val composedApplication = compose(incrementer, doubler)
-  val aSequencedApplication = andThen(incrementer, doubler)
+  val composedApplication = compose(incrementer, doubler) // doubler will run first then incrementer
+  val aSequencedApplication = andThen(incrementer, doubler) // incrementer will run first then doubler
 
   def main(args: Array[String]): Unit = {
     println(tenThousand)

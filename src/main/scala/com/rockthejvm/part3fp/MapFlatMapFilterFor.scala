@@ -8,10 +8,9 @@ object MapFlatMapFilterFor {
   val restOfElements = aList.tail
 
   // map
-  val anIncrementedList = aList.map(_ + 1)
-
+  val anIncrementedList = aList.map(_ + 1) // same as .map(x => x + 1)
   // filter
-  val onlyOddNumbers = aList.filter(_ % 2 != 0)
+  val onlyOddNumbers = aList.filter(_ % 2 != 0) // same as .filter(x => x % 2 != 0)
 
   // flatMap
   val toPair = (x: Int) => List(x, x + 1)
@@ -36,7 +35,7 @@ object MapFlatMapFilterFor {
   val combinationsFor = for {
     number <- numbers if number % 2 == 0 // generator
     char <- chars
-    color <- colors
+    color <- colors // final generator ends with a map all above generators (number, char ) uses flatmap
   } yield s"$number$char - $color" // an EXPRESSION
 
   // for-comprehensions with Unit

@@ -8,7 +8,7 @@ object Options {
   val anOption: Option[Int] = Option(42)
   val anEmptyOption: Option[Int] = Option.empty
 
-  // alt version
+  // alt version, Some and None are subtypes of option
   val aPresentValue: Option[Int] = Some(4)
   val anEmptyOption_v2: Option[Int] = None
 

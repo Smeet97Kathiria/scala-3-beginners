@@ -14,7 +14,7 @@ object AnonymousFunctions {
   val justDoSomething: () => Int = () => 45
   val anInvocation = justDoSomething()
 
-  // alt syntax with curly braces
+  // alt syntax with curly braces for lambda functions, this is handy when passing function instances as arguments to methods.
   val stringToInt = { (str: String) =>
     // implementation: code block
     str.toInt

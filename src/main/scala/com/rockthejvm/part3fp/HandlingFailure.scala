@@ -6,7 +6,7 @@ object HandlingFailure {
 
   // Try = a potentially failed computation
   val aTry: Try[Int] = Try(42)
-  val aFailedTry: Try[Int] = Try(throw new RuntimeException)
+  val aFailedTry: Try[Int] = Try(throw new RuntimeException) // this does not throw an exception by default since this a call by name to the Try method, so the value is not computed before hand which is done in call by value.
 
   // alt construction
   val aTry_v2: Try[Int] = Success(42)

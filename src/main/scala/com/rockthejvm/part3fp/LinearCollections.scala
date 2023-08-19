@@ -32,7 +32,7 @@ object LinearCollections {
     val firstElement = aList.head
     val rest = aList.tail
     // appending and prepending
-    val aBiggerList = 0 +: aList :+ 4
+    val aBiggerList = 0 +: aList :+ 4 // + stays on the side where the element is added
     val prepending = 0 :: aList // :: equivalent to Cons in our LList
     // utility methods
     val scalax5 = List.fill(5)("Scala")
@@ -40,7 +40,7 @@ object LinearCollections {
 
   // ranges
   def testRanges(): Unit = {
-    val aRange = 1 to 10
+    val aRange = 1 to 10 // to is a method implemented internally on the Int data type.
     val aNonInclusiveRange = 1 until 10 // 10 not included
     // same Seq API
     (1 to 10).foreach(_ => println("Scala"))

@@ -16,7 +16,7 @@ object PatternMatching {
   }
 
   // decompose values
-  case class Person(name: String, age: Int)
+  case class Person(name: String, age: Int) // only case classes are automatically eligible for pattern matching.
   val bob = Person("Bob", 16)
 
   val greeting = bob match {
